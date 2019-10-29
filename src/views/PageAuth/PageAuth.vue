@@ -8,8 +8,12 @@
         Чтобы зайти в няшный чатик введи своё имя и нажми "Погнали"
       </p>
     </div>
-    <form class="page__form">
+    <form
+      class="page__form"
+      @submit.prevent="connectUserToChat"
+    >
       <input
+        v-model="user"
         class="page__input"
         type="text"
         placeholder="Андрей"
@@ -34,7 +38,14 @@ export default {
   },
   data() {
     return {
+      user: '',
     };
+  },
+  methods: {
+    connectUserToChat() {
+      this.$store.commit('ADD_USER', this.user);
+      this.$router.push({ name: 'PageChat' });
+    },
   },
 
 

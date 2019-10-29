@@ -1,12 +1,13 @@
 <template>
   <base-page name="chat">
-    <h1 class="page__test2">
-      chat page here
+    <h1 class="page__heading">
+      {{ user }}, добро пожаловать в няшный чатик!
     </h1>
   </base-page>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import BasePage from '@/components/BasePage/BasePage.vue';
 
 export default {
@@ -17,6 +18,9 @@ export default {
     return {
     };
   },
+  computed: {
+    ...mapState(['user']),
+  },
 
 
 };
@@ -24,9 +28,13 @@ export default {
 
 <style lang="scss">
 .page--chat {
+  padding: 0 30px;
   .page {
-    &__test2 {
-      color: $test2;
+    &__heading {
+      color: #4f4777;
+      font-weight: bold;
+      letter-spacing: -1.5px;
+      font-size: 26px;
     }
   }
 }
