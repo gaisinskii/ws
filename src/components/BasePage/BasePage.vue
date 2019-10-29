@@ -21,5 +21,6 @@ export default {
 <style lang="scss">
 .base-page {
   height: auto;
+  padding: 0 30px;
 }
 </style>
