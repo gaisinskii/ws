@@ -39,7 +39,7 @@ export default {
 .layout--main {
   background-image: url("../../assets/images/blob-shape.svg");
   background-repeat: no-repeat;
-  background-position: right -200px top -200px;
+  background-position: right -250px top -250px;
   .layout {
     &__header {
       display: flex;
