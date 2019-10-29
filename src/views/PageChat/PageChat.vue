@@ -3,6 +3,9 @@
     <h1 class="page__heading">
       {{ user }}, добро пожаловать в няшный чатик!
     </h1>
+    <button @click="send">
+      send msg
+    </button>
   </base-page>
 </template>
 
@@ -16,13 +19,22 @@ export default {
   },
   data() {
     return {
+      ws: null,
     };
   },
+
   computed: {
     ...mapState(['user']),
   },
 
-
+  created() {
+    this.ws = new WebSocket(`ws://pm.tada.team/ws?name=${this.user}`);
+  },
+  methods: {
+    send() {
+      this.ws.send(JSON.stringify({ text: 'hello hehe!' }));
+    },
+  },
 };
 </script>
 
