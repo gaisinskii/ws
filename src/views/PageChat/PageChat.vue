@@ -105,6 +105,10 @@ export default {
     window.addEventListener('offline', this.handleConnectionChange);
     window.addEventListener('online', this.handleConnectionChange);
   },
+  destroyed() {
+    window.removeEventListener('offline', this.handleConnectionChange);
+    window.removeEventListener('online', this.handleConnectionChange);
+  },
   methods: {
     sendMessage() {
       this.$refs.sendMsgBtn.classList.add('page__button--animation');
