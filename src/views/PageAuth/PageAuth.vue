@@ -16,9 +16,11 @@
         v-model="user"
         class="page__input"
         type="text"
+        :maxlength="maxLength"
         placeholder="Андрей"
         required
       >
+      <span class="page__input-counter">{{ maxLength - user.length }}</span>
       <button
         class="page__button"
         type="submit"
@@ -39,6 +41,7 @@ export default {
   data() {
     return {
       user: '',
+      maxLength: 21,
     };
   },
   methods: {
@@ -100,17 +103,23 @@ export default {
     &__button {
       background: transparent;
       border: none;
-    }
-    &__input {
-      border-bottom: 1px solid #d3d3d3;
-      margin-bottom: 15px;
-      padding: 5px 5px 5px 0;
       &:focus {
         outline: none;
       }
+    }
+    &__input {
+      border-bottom: 1px solid #d3d3d3;
+      padding: 5px 5px 5px 0;
+
       &::placeholder {
         color: #d3d3d3;
       }
+    }
+    &__input-counter {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 15px;
+      margin-top: 5px;
     }
     &__button {
       padding: 15px;
