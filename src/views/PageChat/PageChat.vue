@@ -164,6 +164,7 @@ export default {
     }
     &__form {
       position: relative;
+      width: 900px;
       height: 60px;
       background: linear-gradient(135deg, #fff3b0 10%, #ca26ff 100%);
       padding: 3px;
